@@ -23,6 +23,9 @@
 	<link rel="stylesheet" href="css/custom.css">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 
+	<!-- Favicon -->
+	<link rel="icon" type="image/x-icon" href="images/favicon.ico">
+
 	<!-- Document Title
 	============================================= -->
 	<title>Andrea Kleinman</title>
@@ -118,12 +121,12 @@
 				<div class="container mt-5 mt-lg-6">
 
 					<div class="masonry-thumbs grid-container row row-cols-1 row-cols-sm-2 row-cols-md-3" data-lightbox="gallery" style="--bs-gutter-x: 1.25rem; --bs-gutter-y: 1.25rem;">
-						<a class="grid-item" href="images/about-1.jpg" data-lightbox="gallery-item"><img class="rounded-6" src="images/about-1.jpg" alt="Gallery Thumb 1"></a>
-						<a class="grid-item" href="images/about-2.jpg" data-lightbox="gallery-item"><img class="rounded-6" src="images/about-2.jpg" alt="Gallery Thumb 2"></a>
-						<a class="grid-item" href="images/about-3.jpg" data-lightbox="gallery-item"><img class="rounded-6" src="images/about-3.jpg" alt="Gallery Thumb 3"></a>
-						<a class="grid-item" href="images/about-4.webp" data-lightbox="gallery-item"><img class="rounded-6" src="images/about-4.webp" alt="Gallery Thumb 4"></a>
-						<a class="grid-item" href="images/about-5.jpg" data-lightbox="gallery-item"><img class="rounded-6" src="images/about-5.jpg" alt="Gallery Thumb 5"></a>
-						<a class="grid-item" href="images/about-6.jpg" data-lightbox="gallery-item"><img class="rounded-6" src="images/about-6.jpg" alt="Gallery Thumb 5"></a>
+						<a data-animate="fadeInLeft" class="grid-item" href="images/about-1.jpg" data-lightbox="gallery-item"><img class="rounded-6" src="images/about-1.jpg" alt="Gallery Thumb 1"></a>
+						<a data-animate="fadeInDown" class="grid-item" href="images/about-2.jpg" data-lightbox="gallery-item"><img class="rounded-6" src="images/about-2.jpg" alt="Gallery Thumb 2"></a>
+						<a data-animate="fadeInRight" class="grid-item" href="images/about-3.jpg" data-lightbox="gallery-item"><img class="rounded-6" src="images/about-3.jpg" alt="Gallery Thumb 3"></a>
+						<a data-animate="fadeInLeft" class="grid-item" href="images/about-4.webp" data-lightbox="gallery-item"><img class="rounded-6" src="images/about-4.webp" alt="Gallery Thumb 4"></a>
+						<a data-animate="fadeInUp" class="grid-item" href="images/about-5.jpg" data-lightbox="gallery-item"><img class="rounded-6" src="images/about-5.jpg" alt="Gallery Thumb 5"></a>
+						<a data-animate="fadeInRight" class="grid-item" href="images/about-6.jpg" data-lightbox="gallery-item"><img class="rounded-6" src="images/about-6.jpg" alt="Gallery Thumb 5"></a>
 					</div>
 				</div>
 
@@ -132,7 +135,7 @@
 
 					<table class="awards-table">
 						<tbody>
-							<tr>
+							<tr data-animate="fadeInLeft">
 								<td class="awards-thumb">
 									<img src="images/banner-1.jpg" alt="Silver Condor Award">
 								</td>
@@ -143,7 +146,7 @@
 									<p class="awards-shared">Compartido con: Inti Nieto, César Custodio, Santiago Parysow</p>
 								</td>
 							</tr>
-							<tr>
+							<tr data-animate="fadeInUp">
 								<td class="awards-thumb">
 									<img src="images/banner-3.jpg" alt="Award thumbnail">
 								</td>
@@ -154,7 +157,7 @@
 									<p class="awards-shared">Alejandro Carrillo Penovi, Geraldina Rodriguez, Nicolás Toler</p>
 								</td>
 							</tr>
-							<tr>
+							<tr data-animate="fadeInRight">
 								<td class="awards-thumb">
 									<img src="images/banner-8.jpg" alt="Award thumbnail">
 								</td>
@@ -203,7 +206,7 @@
 
 	<!-- Go To Top
 	============================================= -->
-	<div id="gotoTop" class="uil uil-angle-up bg-white bg-opacity-10 h-bg-color h-text-dark rounded-4"></div>
+	<div id="gotoTop" data-mobile="true" class="uil uil-angle-up bg-white bg-opacity-10 h-bg-color h-text-dark rounded-4"></div>
 
 	<!-- JavaScripts
 	============================================= -->

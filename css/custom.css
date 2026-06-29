@@ -32,3 +32,173 @@
       padding: 10px;
 	}
 }
+
+/* --- Language switcher (replaces the header search) ----------
+   A small ENG/ESP dropdown. Lives in .header-misc where the
+   search icon used to be. */
+#lang-switcher {
+	position: relative;
+	margin: 0 8px;
+	font-size: 0.8125rem;
+}
+#lang-switcher #lang-trigger {
+	display: flex;
+	align-items: center;
+	color: #fff;
+	font-weight: 600;
+	letter-spacing: 1px;
+	text-transform: uppercase;
+	white-space: nowrap;
+	cursor: pointer;
+}
+#lang-switcher #lang-trigger:hover {
+	color: var(--cnvs-themecolor, #1abc9c);
+}
+#lang-switcher #lang-trigger .bi-chevron-down {
+	font-size: 0.7em;
+}
+
+#lang-switcher .lang-menu {
+	position: absolute;
+	top: 100%;
+	right: 0;
+	min-width: 140px;
+	margin: 10px 0 0;
+	padding: 6px 0;
+	list-style: none;
+	background: #fff;
+	border-radius: 8px;
+	box-shadow: 0 12px 30px rgba(0, 0, 0, 0.18);
+	opacity: 0;
+	visibility: hidden;
+	transform: translateY(-6px);
+	transition: opacity 0.2s ease, transform 0.2s ease, visibility 0.2s;
+	z-index: 1000;
+}
+#lang-switcher.open .lang-menu {
+	opacity: 1;
+	visibility: visible;
+	transform: translateY(0);
+}
+#lang-switcher .lang-menu li {
+	margin: 0;
+}
+#lang-switcher .lang-menu a {
+	display: block;
+	padding: 8px 18px;
+	color: #333;
+	font-weight: 500;
+}
+#lang-switcher .lang-menu a:hover {
+	background: rgba(0, 0, 0, 0.05);
+}
+#lang-switcher .lang-menu a.active {
+	color: var(--cnvs-themecolor, #1abc9c);
+	font-weight: 700;
+}
+
+/* The header search was replaced by the language switcher; its
+   markup is left in place but never shown. */
+.top-search-form {
+	display: none !important;
+}
+
+/* --- About page gallery: equal-height thumbnails -------------
+   The gallery is a masonry (isotope) layout, so images normally
+   stagger by their natural height. Pinning every thumbnail to the
+   same height with object-fit: cover crops them uniformly and
+   collapses the masonry into a clean, even grid. Change the
+   `height` value to taste. */
+.masonry-thumbs .grid-item img {
+	height: 240px;
+	width: 100%;
+	object-fit: cover;
+}
+
+/* --- Awards list (about page) -------------------------------
+   Each award is a centred block: poster on top, details centred
+   below, with subtle separators between awards. */
+.awards-table {
+	width: 100%;
+	border-collapse: collapse;
+	text-align: center;
+}
+/* Lay the three awards out in a single row of centred columns;
+   they wrap to stack on narrow screens. */
+.awards-table tbody {
+	display: flex;
+	justify-content: center;
+}
+.awards-table tr {
+	display: block;
+	flex: 1 1 0;
+	min-width: 0;
+	margin: 0 3rem;
+	position: relative;
+}
+/* Vertical divider centred in the gap between columns. The gap is
+   6rem (3rem margin on each adjacent column), so the line sits 3rem
+   to the left of the column edge — i.e. the negative of the margin.
+   If you change the column margin, update this value to match. */
+.awards-table tr + tr::before {
+	content: "";
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	left: -3rem;
+	border-left: 1px solid rgba(255, 255, 255, 0.12);
+}
+.awards-table td {
+	display: block;
+	padding: 0;
+}
+.awards-thumb {
+	padding-bottom: 1rem;
+}
+.awards-thumb img {
+	width: 80px;
+	height: 120px;
+	object-fit: cover;
+	border-radius: 10px;
+	display: block;
+	margin: 0 auto;
+   margin-bottom: 2rem;
+}
+.awards-title {
+	font-size: 1.125rem;
+	font-weight: 700;
+	margin-bottom: 0.4rem;
+}
+.awards-meta {
+	margin-bottom: 0.2rem;
+}
+.awards-production {
+	margin-bottom: 0.2rem;
+	font-style: italic;
+}
+.awards-shared {
+	margin-bottom: 0;
+	font-size: 0.875rem;
+	opacity: 0.55;
+}
+
+/* Stack into a single centred column on phones/tablets, with
+   horizontal dividers instead of vertical ones. */
+@media (max-width: 767.98px) {
+	.awards-table tbody {
+		flex-direction: column;
+	}
+	.awards-table tr {
+		padding: 1.75rem 0;
+	}
+	.awards-table tr + tr::before {
+		display: none;
+	}
+	.awards-table tr + tr {
+		border-top: 1px solid rgba(255, 255, 255, 0.12);
+	}
+	.awards-thumb img {
+		width: 60px;
+		height: 90px;
+	}
+}

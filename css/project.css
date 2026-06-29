@@ -20,8 +20,8 @@
 }
 
 body.dark {
-	--cnvs-themecolor: #baff00;
-	--cnvs-themecolor-rgb: 186, 255, 0;
+	--cnvs-themecolor: #ffa722;
+	--cnvs-themecolor-rgb: 255, 167, 34;
 
 	--cnvs-body-bg: var(--cnvs-dark-0);
 

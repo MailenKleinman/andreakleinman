@@ -1,0 +1,34 @@
+/* ===========================================
+   Custom overrides for Andrea Kleinman
+   =========================================== */
+
+/* --- Smaller header logo ---------------------------------
+   The theme stretches the logo to the full header height,
+   which (given the wide 755x49 wordmark) makes it span the
+   whole navbar. Pin it to a small fixed height instead and
+   let the width scale proportionally. */
+#header-wrap #logo img,
+.is-expanded-menu #header.sticky-header-shrink #header-wrap #logo img {
+	height: 18px;
+	width: auto;
+	max-width: 100%;
+}
+
+/* Stop the logo link from claiming the full row width so the
+   logo box shrinks to fit the image. */
+#logo a {
+	width: auto;
+}
+
+/* --- Mobile logo --------------------------------------------
+   Below 992px (where the theme switches to the hamburger menu)
+   swap in the compact logo (logox2, 395x127). `content: url()`
+   replaces the displayed image of the <img> in all modern
+   browsers. Path is relative to this CSS file. */
+@media (max-width: 991.98px) {
+	#header-wrap #logo img {
+		content: url(../images/logox2.png);
+		height: 56px;
+      padding: 10px;
+	}
+}

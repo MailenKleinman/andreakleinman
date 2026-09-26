@@ -42,7 +42,7 @@
 
 		<!-- Header
 		============================================= -->
-		<header id="header" class="transparent-header floating-header" data-sticky-shrink="false">
+		<header id="header" class="transparent-header floating-header header-on-scroll" data-sticky-shrink="false" data-sticky-offset="200" data-mobile-sticky="true">
 			<div id="header-wrap">
 				<div class="container">
 					<div class="header-row">
@@ -94,11 +94,12 @@
 										<div data-i18n="nav.about">About</div>
 									</a>
 								</li>
+								<!-- Docencia oculta por ahora
 								<li class="menu-item">
 									<a class="menu-link" href="teaching.html">
 										<div data-i18n="nav.teaching">Teaching</div>
 									</a>
-								</li>
+								</li> -->
 								<li class="menu-item">
 									<a class="menu-link" href="contact.html">
 										<div data-i18n="nav.contact">Contact</div>
@@ -122,19 +123,36 @@
 		<!-- Content
 		============================================= -->
 		<section id="content">
-			<div class="content-wrap pb-3" style="padding-top: 0.5em;">
+			<div class="content-wrap pb-3" style="padding-top: 0;">
 
-				<div class="text-center px-5 mw-md mx-auto mt-4 mt-md-0 mt-lg-5 mb-3">
-					<p class="text-uppercase ls-2 fw-bold color">editora, lead editor y supervisora de edición</p>
+		
+
+				<!-- Banner: video de fondo (mudo, en loop, sin controles) detrás del logo.
+				     Para cambiarlo, reemplazá el archivo videos/banner.mp4.
+				     data-start = segundo desde el que arranca (y al que vuelve en cada loop) -->
+				<div class="home-hero">
+					<div class="home-hero-video" aria-hidden="true">
+						<video id="home-hero-video" src="videos/banner.mp4#t=20" data-start="26" autoplay muted playsinline preload="auto"></video>
+					</div>
+					<div class="home-filter-logo"><img src="images/logo2.png" alt="Andrea Kleinman - Editora (SAE, EDA)"></div>
 				</div>
+
+				<!-- Filtros de categoría: cada .portfolio-item lleva una clase pf-cine / pf-series / pf-consultoria / pf-coming-soon -->
+				<ul id="portfolio-filter" class="grid-filter style-4" data-container="#portfolio">
+					<li class="activeFilter"><a href="#" data-filter="*">Todos</a></li>
+					<li><a href="#" data-filter=".pf-cine">Cine</a></li>
+					<li><a href="#" data-filter=".pf-series">Series</a></li>
+					<li><a href="#" data-filter=".pf-consultoria">Consultoría</a></li>
+					<li><a href="#" data-filter=".pf-coming-soon">Coming soon</a></li>
+				</ul>
 
 				<div class="clear mb-lg-4"></div>
 
 				<div class="container-fluid" style="--bs-gutter-x: 1.875rem">
-					<div id="portfolio" class="portfolio row g-3">
+					<div id="portfolio" class="portfolio row g-3 grid-container" data-layout="fitRows">
 
-						<article data-animate="fadeInUp" class="portfolio-item col-sm-4 col-12">
-							<div class="grid-inner">
+						<article class="portfolio-item pf-series col-sm-4 col-12">
+							<div class="grid-inner" data-animate="fadeInUp">
 								<div class="portfolio-image">
 									<a href="about.html">
 										<img src="images/banner-1.jpg" alt="banner1">
@@ -152,8 +170,8 @@
 							</div>
 						</article>
 
-						<article data-animate="fadeInUp" class="portfolio-item col-sm-4 col-12">
-							<div class="grid-inner">
+						<article class="portfolio-item pf-series col-sm-4 col-12">
+							<div class="grid-inner" data-animate="fadeInUp">
 								<div class="portfolio-image">
 									<a href="about.html">
 										<img src="images/banner-2.jpg" alt="banner2">
@@ -170,8 +188,8 @@
 							</div>
 						</article>
 
-						<article data-animate="fadeInUp" class="portfolio-item col-sm-4 col-12">
-							<div class="grid-inner">
+						<article class="portfolio-item pf-series col-sm-4 col-12">
+							<div class="grid-inner" data-animate="fadeInUp">
 								<div class="portfolio-image">
 									<a href="about.html">
 										<img src="images/banner-3.jpg" alt="banner3">
@@ -188,8 +206,8 @@
 							</div>
 						</article>
 
-						<article data-animate="fadeInUp" class="portfolio-item col-sm-4 col-12">
-							<div class="grid-inner">
+						<article class="portfolio-item pf-series col-sm-4 col-12">
+							<div class="grid-inner" data-animate="fadeInUp">
 								<div class="portfolio-image">
 									<a href="about.html">
 										<img src="images/banner-4.jpg" alt="banner4">
@@ -206,8 +224,8 @@
 							</div>
 						</article>
 
-						<article data-animate="fadeInUp" class="portfolio-item col-sm-4 col-12">
-							<div class="grid-inner">
+						<article class="portfolio-item pf-series col-sm-4 col-12">
+							<div class="grid-inner" data-animate="fadeInUp">
 								<div class="portfolio-image">
 									<a href="about.html">
 										<img src="images/banner-5.jpg" alt="banner5">
@@ -224,8 +242,8 @@
 							</div>
 						</article>
 
-						<article data-animate="fadeInUp" class="portfolio-item col-sm-4 col-12">
-							<div class="grid-inner">
+						<article class="portfolio-item pf-series col-sm-4 col-12">
+							<div class="grid-inner" data-animate="fadeInUp">
 								<div class="portfolio-image">
 									<a href="about.html">
 										<img src="images/banner-6.jpg" alt="banner6">
@@ -242,8 +260,8 @@
 							</div>
 						</article>
 
-						<article data-animate="fadeInUp" class="portfolio-item col-sm-4 col-12">
-							<div class="grid-inner">
+						<article class="portfolio-item pf-cine col-sm-4 col-12">
+							<div class="grid-inner" data-animate="fadeInUp">
 								<div class="portfolio-image">
 									<a href="about.html">
 										<img src="images/banner-7.png" alt="banner7">
@@ -260,8 +278,8 @@
 							</div>
 						</article>
 
-						<article data-animate="fadeInUp" class="portfolio-item col-sm-4 col-12">
-							<div class="grid-inner">
+						<article class="portfolio-item pf-cine col-sm-4 col-12">
+							<div class="grid-inner" data-animate="fadeInUp">
 								<div class="portfolio-image">
 									<a href="about.html">
 										<img src="images/banner-8.jpg" alt="banner8">
@@ -278,8 +296,8 @@
 							</div>
 						</article>
 
-						<article data-animate="fadeInUp" class="portfolio-item col-sm-4 col-12">
-							<div class="grid-inner">
+						<article class="portfolio-item pf-cine col-sm-4 col-12">
+							<div class="grid-inner" data-animate="fadeInUp">
 								<div class="portfolio-image">
 									<a href="about.html">
 										<img src="images/banner-9.jpg" alt="banner9">
@@ -365,6 +383,24 @@
 	<script src="js/modal.js"></script>
 
 	<script>
+		// Banner video: start at data-start (seconds) and loop back to it
+		// instead of to 0 (the native `loop` attribute always restarts at 0).
+		(function () {
+			var v = document.getElementById("home-hero-video");
+			if (!v) { return; }
+			var start = Number(v.getAttribute("data-start")) || 0;
+			function toStart() {
+				if (v.duration && start >= v.duration) { start = 0; }
+				v.currentTime = start;
+			}
+			if (v.readyState >= 1) { toStart(); }
+			v.addEventListener("loadedmetadata", toStart);
+			v.addEventListener("ended", function () {
+				toStart();
+				v.play();
+			});
+		})();
+
 		jQuery(document).ready(function () {
 			jQuery('.videoplay-on-hover').hover(function () {
 				if (jQuery(this).find('video').length > 0) {

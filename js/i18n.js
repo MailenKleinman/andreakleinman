@@ -27,7 +27,7 @@
 	// Spanish strings. English is read straight from the HTML.
 	var dict = {
 		es: {
-			"nav.works": "Trabajo",
+			"nav.works": "Trabajos",
 			"nav.about": "Acerca de",
 			"nav.teaching": "Docencia",
 			"nav.contact": "Contacto"

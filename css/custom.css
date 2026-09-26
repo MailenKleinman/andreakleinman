@@ -435,3 +435,95 @@
 .info-modal-link i {
 	font-size: 1.35rem;
 }
+/* --- Home category filters (Todos / Cine / Series / Consultoría)
+   Canvas' .grid-filter.style-4 (underline on the active item).
+   On phones the theme gives each item 50% width (2x2 grid); keep
+   them on a single centred row instead. */
+#portfolio-filter {
+	padding-left: 0;
+	margin-bottom: 1.5rem;
+}
+@media (max-width: 767.98px) {
+	#portfolio-filter li {
+		width: auto;
+		margin: 0 0.9rem;
+	}
+}
+
+/* --- Logo above the home filters (logo2.png, 2172x724, transparent) --- */
+.home-filter-logo {
+	text-align: center;
+	margin: 0.5rem 0 0.75rem;
+}
+.home-filter-logo img {
+	width: 800px;
+	max-width: 100%;
+	height: auto;
+}
+
+/* --- Home: header hidden at the top, slides in on scroll ------
+   `.header-on-scroll` is set on the home <header>. Canvas adds
+   `.sticky-header` once the page scrolls past data-sticky-offset
+   (200px); until then the menu bar is hidden. */
+/* Take the (hidden) header out of the flow so the banner starts
+   at the very top of the page. */
+#header.header-on-scroll {
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+}
+#header.header-on-scroll #header-wrap {
+	transition: opacity 0.35s ease, transform 0.35s ease, visibility 0.35s;
+}
+#header.header-on-scroll:not(.sticky-header) #header-wrap {
+	opacity: 0;
+	visibility: hidden;
+	transform: translateY(-100%);
+}
+
+/* --- Home banner: video playing behind the logo --------------
+   videos/banner.mp4 fills the banner like background-size:
+   cover (object-fit) and ignores clicks. A dark veil (::after)
+   keeps the logo readable and fades into the page at the
+   bottom. Change the banner height here. */
+.home-hero {
+	--hero-h: 70vh;
+	position: relative;
+	height: var(--hero-h);
+	min-height: 360px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	overflow: hidden;
+	margin-bottom: 2.5rem;
+	background: #000;
+}
+.home-hero-video video {
+	position: absolute;
+	inset: 0;
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+	pointer-events: none;
+}
+.home-hero::after {
+	content: "";
+	position: absolute;
+	inset: 0;
+	background:
+		linear-gradient(to bottom, rgba(0, 0, 0, 0) 60%, var(--cnvs-body-bg, #111) 100%),
+		rgba(0, 0, 0, 0.45);
+	pointer-events: none;
+}
+.home-hero .home-filter-logo {
+	position: relative;
+	z-index: 1;
+	margin: 0;
+	padding: 0 1rem;
+}
+@media (max-width: 767.98px) {
+	.home-hero {
+		--hero-h: 55vh;
+	}
+}

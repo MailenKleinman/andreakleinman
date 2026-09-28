@@ -488,10 +488,10 @@
    keeps the logo readable and fades into the page at the
    bottom. Change the banner height here. */
 .home-hero {
-	--hero-h: 70vh;
+	--hero-h: 100vh; /* full screen height */
 	position: relative;
 	height: var(--hero-h);
-	min-height: 360px;
+	min-height: 300px;
 	display: flex;
 	align-items: center;
 	justify-content: center;
@@ -499,12 +499,23 @@
 	margin-bottom: 2.5rem;
 	background: #000;
 }
+/* The trailer has a black letterbox bar baked into its top edge
+   (21px of 1080 ≈ 1.95% of the video height). The video is pulled
+   up and made taller by --hero-crop so that bar sits just above
+   the banner: 1.2vw covers it when the video is scaled to the
+   banner's width (desktop), 2.2% of the banner height when it's
+   scaled to the height (phones). */
+.home-hero-video {
+	--hero-crop: max(1.2vw, calc(var(--hero-h) * 0.022));
+}
 .home-hero-video video {
 	position: absolute;
-	inset: 0;
+	top: calc(-1 * var(--hero-crop));
+	left: 0;
 	width: 100%;
-	height: 100%;
+	height: calc(100% + var(--hero-crop));
 	object-fit: cover;
+	object-position: center top; /* crop from the bottom, keep faces at the top */
 	pointer-events: none;
 }
 .home-hero::after {
@@ -522,8 +533,36 @@
 	margin: 0;
 	padding: 0 1rem;
 }
-@media (max-width: 767.98px) {
-	.home-hero {
-		--hero-h: 55vh;
+
+/* --- Home banner: subtle "keep scrolling" arrow --------------
+   A thin white chevron (two 1px borders) at the bottom centre of
+   the banner that slowly drifts down and fades, on a loop.
+   Purely decorative. Tweak opacity / size / timing here. */
+.home-hero-arrow {
+	position: absolute;
+	left: 50%;
+	bottom: 1.75rem;
+	z-index: 1;
+	width: 18px;
+	height: 18px;
+	margin-left: -9px;
+	border-right: 2px solid rgba(255, 255, 255, 0.9);
+	border-bottom: 2px solid rgba(255, 255, 255, 0.9);
+	transform: rotate(45deg);
+	opacity: 0;
+	animation: home-hero-arrow 2.6s ease-in-out infinite;
+	pointer-events: none;
+}
+@keyframes home-hero-arrow {
+	0%   { opacity: 0;    transform: translateY(-6px) rotate(45deg); }
+	30%  { opacity: 0.85; }
+	70%  { opacity: 0.85; }
+	100% { opacity: 0;    transform: translateY(6px) rotate(45deg); }
+}
+/* Visitors who ask for less motion get a still, faint arrow. */
+@media (prefers-reduced-motion: reduce) {
+	.home-hero-arrow {
+		animation: none;
+		opacity: 0.7;
 	}
 }
